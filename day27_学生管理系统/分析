@@ -1,0 +1,14 @@
+1 访问login.jsp 并显示验证码
+2 填写表单数据 点击提交按钮 提交给LoginServlet
+3 LoginServlet 先获取用户输入的验证码 进行判断
+        验证码错误:重定向到了login.jsp
+        验证码正确:获取用户名和密码 封装成administrator对象 交给AdminDao去数据库中查询
+                        查不到:打回login.jsp 重新登陆
+                        查得到:就把用户信息保存到request域中 并转发到index.jsp
+4 index.jsp上 可以展示用户的信息  ${}
+        除此以外 还有一个超链接 点击查询所有学生信息 href="${pageContext.request.contextPath}/FindAllStuServlet";
+5 点击超链接之后 FindAllStuServlet 就去数据中查询所有学生信息 并且封装成一个List集合 放入request域中 转发到list.jsp
+    在list.jsp中从request中获取到List集合 对集合进行遍历和展示 jstl <c:foreach items=${list} var="stu"></c:foreach>
+6 在list.jsp下方有一个添加按钮 点击添加按钮 我们就进入add.jsp 填写表单数据 点击提交按钮 提交给AddStudentServlet
+    AddStudentServlet 从页面上获取请求参数 并封装成student对象 调用studao的addStudent方法把学生对象的数据插入到数据库中
+    结束之后 直接重定向到FindAllStuServlet 重新做一个查询

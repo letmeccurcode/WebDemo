@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
         if(result != null){
             //跳转到index
             request.setAttribute("admin",result);
+            session.setAttribute("admin",result.getUsername());
             request.getRequestDispatcher("index.jsp").forward(request,response);
         }else{
             //用户名或者密码有问题 跳转到登陆页面

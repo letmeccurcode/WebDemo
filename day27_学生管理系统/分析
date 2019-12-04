@@ -12,4 +12,7 @@
 6 在list.jsp下方有一个添加按钮 点击添加按钮 我们就进入add.jsp 填写表单数据 点击提交按钮 提交给AddStudentServlet
     AddStudentServlet 从页面上获取请求参数 并封装成student对象 调用studao的addStudent方法把学生对象的数据插入到数据库中
     结束之后 直接重定向到FindAllStuServlet 重新做一个查询
-7 
+7 在list.jsp中每一条记录后面有一个修改按钮 点击修改按钮 应该去跳转到一个页面 update.jsp
+  在这个页面上应该显示当前被修改的对象的详细信息 接下来就可以去修改表单信息  点击提交 提交给一个servlet
+  这个servlet就从表单中获取数据 封装成对象 交给studao来执行 studao中的一个方法要执行update语句
+  update stu set sname = ?, sex = ?,.... where id = ?

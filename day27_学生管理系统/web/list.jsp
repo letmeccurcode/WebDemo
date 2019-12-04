@@ -70,7 +70,10 @@
                 <td>${stu.qq}</td>
                 <td>${stu.birthStr}</td>
                 <td><a class="btn btn-default btn-sm" href="update.html">修改</a>&nbsp;
-                    <a class="btn btn-default btn-sm" href="">删除</a></td>
+                    <a class="btn btn-default btn-sm" onclick="deletestu(${stu.id});">删除</a></td>
+<%--         href="${pageContext.request.contextPath}/deletestuServlet?id=${stu.id}"       --%>
+<%--                 /stu/deletestuServlet?id=1         --%>
+<%--                ima src="${pagecontext.request.contextpaath}/CheckcodeServlet"    --%>
             </tr>
 
         </c:forEach>
@@ -81,6 +84,17 @@
         </tr>
     </table>
 </div>
+
+<script>
+
+    function deletestu(id) {
+        // var flag = confirm("确定要删除吗");
+        if (confirm("确定要删除吗")){
+            location.href = "${pageContext.request.contextPath}/deletestuServlet?id="+id;
+        }
+    }
+
+</script>
 </body>
 </html>
 

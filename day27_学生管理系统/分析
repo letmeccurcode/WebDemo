@@ -12,3 +12,4 @@
 6 在list.jsp下方有一个添加按钮 点击添加按钮 我们就进入add.jsp 填写表单数据 点击提交按钮 提交给AddStudentServlet
     AddStudentServlet 从页面上获取请求参数 并封装成student对象 调用studao的addStudent方法把学生对象的数据插入到数据库中
     结束之后 直接重定向到FindAllStuServlet 重新做一个查询
+7 
